@@ -1,0 +1,142 @@
+<!-- Navbar centrado -->
+<nav class="perfil-navbar">
+  <h1>Perfil</h1>
+</nav>
+
+<!-- Mensaje de error global -->
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<!-- Indicador de carga -->
+<div *ngIf="isLoading" class="loading-spinner">
+  Cargando...
+</div>
+
+<!-- Contenedor de perfil -->
+<div class="perfil-info" *ngIf="!isLoading">
+  <div class="perfil-imagen">
+    <img [src]="fotoPerfil" alt="Foto de perfil" />
+  </div>
+
+  <!-- Botón de carga de imagen debajo del círculo -->
+  <input 
+    type="file" 
+    (change)="cambiarFoto($event)" 
+    class="foto-input" 
+    accept="image/*"
+    [disabled]="isLoading"
+  />
+
+  <!-- Contenido del perfil -->
+  <ng-container *ngIf="user">
+    <div class="perfil-campos">
+      <label class="seccion-titulo">Nombre:</label>
+      <input 
+        type="text" 
+        [(ngModel)]="user.nombre" 
+        name="nombre" 
+        class="input-perfil"
+        [disabled]="isLoading"
+      />
+
+      <label class="seccion-titulo">Apellido:</label>
+      <input 
+        type="text" 
+        [(ngModel)]="user.apellido" 
+        name="apellido" 
+        class="input-perfil"
+        [disabled]="isLoading"
+      />
+
+      <label class="seccion-titulo">Correo Electrónico:</label>
+      <input 
+        type="email" 
+        [(ngModel)]="user.correo" 
+        name="correo" 
+        class="input-perfil" 
+        disabled
+      />
+
+      <label class="seccion-titulo">Cédula:</label>
+      <input 
+        type="text" 
+        [(ngModel)]="user.cedula" 
+        name="cedula" 
+        class="input-perfil"
+        [disabled]="isLoading"
+      />
+    </div>
+
+    <div class="botones-perfil">
+      <button 
+        (click)="abrirModal()" 
+        class="btn-editar"
+        [disabled]="isLoading"
+      >
+        Editar Perfil
+      </button>
+      <button 
+        (click)="abrirModalCerrarSesion()" 
+        class="btn-cerrar-sesion"
+        [disabled]="isLoading"
+      >
+        Cerrar Sesión
+      </button>
+    </div>
+  </ng-container>
+</div>
+
+<!-- Modal de edición -->
+<div class="modal" *ngIf="modalActivo">
+  <div class="modal-contenido">
+    <h2>Editar Perfil</h2>
+    
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <form (ngSubmit)="actualizarPerfil()" *ngIf="user">
+      <!-- Campos del formulario -->
+      <button 
+        type="submit" 
+        class="btn-guardar"
+        [disabled]="isLoading"
+      >
+        {{ isLoading ? 'Guardando...' : 'Guardar Cambios' }}
+      </button>
+      <button 
+        type="button" 
+        (click)="cerrarModal()" 
+        class="btn-cancelar"
+        [disabled]="isLoading"
+      >
+        Cancelar
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal de confirmación de cerrar sesión -->
+<div class="modal" *ngIf="modalCerrarSesionActivo">
+  <div class="modal-contenido">
+    <h2>Cerrar Sesión</h2>
+    <p>¿Estás seguro de que deseas cerrar sesión?</p>
+    <div class="modal-botones">
+      <button 
+        (click)="cerrarSesion()" 
+        class="btn-confirmar"
+        [disabled]="isLoading"
+      >
+        Confirmar
+      </button>
+      <button 
+        (click)="cerrarModalCerrarSesion()" 
+        class="btn-cancelar"
+        [disabled]="isLoading"
+      >
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>

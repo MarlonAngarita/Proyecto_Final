@@ -1,0 +1,76 @@
+<button class="menu-toggle" [class.active]="!sidebarOculto" (click)="toggleSidebar()">
+  <i [class]="sidebarOculto ? 'fa-solid fa-bars' : 'fa-solid fa-xmark'"></i>
+</button>
+
+<div class="sidebar" [class.hidden]="sidebarOculto" (click)="detenerPropagacion($event)">
+  <!-- Perfil del usuario en la parte superior -->
+  <div class="perfil-container" (click)="irAlPerfil()">
+    <img src="/assets/img/perfil-default.png" alt="Perfil" />
+  </div>
+
+  <!-- Nombre del usuario fuera del contenedor -->
+  <p class="nombre-usuario">{{ userName }}</p>
+
+  <ul *ngIf="userRole === 'estudiante'">
+    <li>
+      <button class="sidebar-button" (click)="navegar('/usuario/biblioteca')">📚 Biblioteca</button>
+    </li>
+    <li>
+      <button class="sidebar-button" (click)="navegar('/usuario/categoria-estudiante')">
+        📂 Categoría
+      </button>
+    </li>
+    <li>
+      <button class="sidebar-button" (click)="navegar('/usuario/detalle-contenido')">
+        📖 Detalles Contenido
+      </button>
+    </li>
+    <li><button class="sidebar-button" (click)="navegar('/usuario/cursos')">🎓 Cursos</button></li>
+    <li>
+      <button class="sidebar-button" (click)="navegar('/usuario/foro-estudiantes')">💬 Foro</button>
+    </li>
+  </ul>
+
+  <ul *ngIf="userRole === 'profesor'">
+    <li>
+      <button class="sidebar-button" (click)="navegar('/profesores/detalle-curso')">
+        🏠 Menu Principal
+      </button>
+    </li>
+    <li>
+      <button class="sidebar-button" (click)="navegar('/profesores/biblioteca')">
+        📚 Biblioteca
+      </button>
+    </li>
+    <li>
+      <button class="sidebar-button" (click)="navegar('/profesores/categoria-profesor')">
+        📂 Categoría
+      </button>
+    </li>
+    <li>
+      <button class="sidebar-button" (click)="navegar('/profesores/detalle-contenido')">
+        📖 Detalles Contenido
+      </button>
+    </li>
+  </ul>
+
+  <div class="spacer"></div>
+
+  <!-- Botón de cerrar sesión -->
+  <!-- <button class="sidebar-button logout-button" (click)="abrirModalCerrarSesion()">Cerrar sesión</button> -->
+
+  <div class="sidebar-logo">
+    <img src="/assets/img/Kutsa-logo" alt="Logo" />
+  </div>
+</div>
+
+<!-- Modal de confirmación
+<div class="modal" *ngIf="modalCerrarSesionActivo">
+    <div class="modal-content">
+        <p>¿Está seguro que desea cerrar sesión?</p>
+        <div class="modal-buttons">
+            <button class="aceptar" (click)="cerrarSesion()">Aceptar</button>
+            <button class="cancelar" (click)="cerrarModalCerrarSesion()">Cancelar</button>
+        </div>
+    </div> 
+</div>-->

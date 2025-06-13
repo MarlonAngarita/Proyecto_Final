@@ -1,0 +1,17 @@
+<main class="main-content">
+  <form (ngSubmit)="onLogin()" class="formulario-container">
+    <h1>INICIO DE SESIÓN</h1>
+    <div class="input-container">
+      <input type="text" [(ngModel)]="nombreUsuario" name="nombreUsuario" required />
+      <label for="nombreUsuario">Usuario</label>
+    </div>
+    <div class="input-container">
+      <input type="password" [(ngModel)]="contrasenaUsuario" name="contrasenaUsuario" required />
+      <label for="contrasenaUsuario">Contraseña</label>
+    </div>
+    <button type="submit" class="btn">Iniciar Sesión</button>
+
+    <br />
+    <button (click)="redirigirRegistro()" class="link-registro">REGISTRARSE</button>
+  </form>
+</main>

@@ -1,0 +1,8 @@
+<app-navbar *ngIf="mostrarNavbar"></app-navbar>
+<app-sidebar *ngIf="!mostrarNavbar"></app-sidebar>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer *ngIf="mostrarNavbar"></app-footer>

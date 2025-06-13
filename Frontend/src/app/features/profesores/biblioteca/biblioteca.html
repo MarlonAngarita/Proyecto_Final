@@ -1,0 +1,42 @@
+<nav class="navbar">
+  <h1>Biblioteca</h1>
+</nav>
+
+<main class="contenido">
+  <!-- Vista principal -->
+  <section *ngIf="vistaActual === 'menu-principal'">
+    <div class="item">
+      <h2>Planificación de Clases</h2>
+      <p>Accede a los recursos para planificar tus próximas clases.</p>
+      <button (click)="cambiarVista('crear-clase')">Crear nueva clase</button>
+      <button (click)="cambiarVista('ver-clases')">Ver clases programadas</button>
+
+      <h2>Evaluaciones</h2>
+      <button (click)="cambiarVista('crear-evaluacion')">Crear evaluación</button>
+      <button (click)="cambiarVista('ver-evaluaciones')">Ver evaluaciones creadas</button>
+
+      <h2>Estudiantes</h2>
+      <button (click)="cambiarVista('ver-estudiantes')">Gestionar estudiantes</button>
+    </div>
+  </section>
+
+  <!-- Vista: crear clase -->
+  <section *ngIf="vistaActual === 'crear-clase'">
+    <h2>Crear Nueva Clase</h2>
+    <form (ngSubmit)="guardarClase()">
+      <label>Título: <input type="text" [(ngModel)]="nuevaClase.titulo" required /></label>
+      <label>Fecha: <input type="date" [(ngModel)]="nuevaClase.fecha" required /></label>
+      <button type="submit">Guardar</button>
+    </form>
+    <button class="btn-volver" (click)="cambiarVista('menu-principal')">← Volver</button>
+  </section>
+
+  <!-- Vista: ver clases -->
+  <section *ngIf="vistaActual === 'ver-clases'">
+    <h2>Clases Programadas</h2>
+    <ul>
+      <li *ngFor="let clase of clases">{{ clase.titulo }} - {{ clase.fecha }}</li>
+    </ul>
+    <button class="btn-volver" (click)="cambiarVista('menu-principal')">← Volver</button>
+  </section>
+</main>

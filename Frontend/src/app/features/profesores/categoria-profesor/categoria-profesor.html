@@ -1,0 +1,60 @@
+<nav class="navbar">
+  <h1>Categoría de Profesores</h1>
+</nav>
+
+<main>
+  <!-- FORMULARIO SEPARADO DE LAS CATEGORÍAS -->
+  <section class="form-container">
+    <h2>Agregar Nueva Categoría</h2>
+    <form (submit)="agregarCategoria()">
+      <input
+        type="text"
+        [(ngModel)]="nuevaCategoria.nombre"
+        name="nombreCategoria"
+        placeholder="Nombre de la categoría"
+        required
+      />
+      <input type="file" (change)="cargarImagen($event)" accept="image/*" />
+      <button type="submit">Agregar</button>
+    </form>
+
+    <div *ngIf="nuevaCategoria.imgSrc" class="preview">
+      <img [src]="nuevaCategoria.imgSrc" alt="Vista previa" />
+    </div>
+  </section>
+
+  <section class="categorias">
+    <h2>Explora las categorías</h2>
+    <div class="categoria-grid">
+      <div *ngFor="let categoria of categorias" class="categoria-item">
+        <img [src]="categoria.imgSrc" [alt]="categoria.nombre" />
+        <p><strong>{{ categoria.nombre }}</strong></p>
+        <div class="botones">
+          <button class="edit-btn" (click)="abrirModal(categoria)">Editar</button>
+          <button class="delete-btn" (click)="eliminarCategoria(categoria)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal para editar categoría -->
+  <div class="modal" *ngIf="modalActivo">
+    <div class="modal-content">
+      <h2>Editar Categoría</h2>
+      <input
+        type="text"
+        [(ngModel)]="categoriaEditada.nombre"
+        name="nombreEditado"
+        placeholder="Nuevo nombre de la categoría"
+      />
+      <input type="file" (change)="cambiarImagen($event)" accept="image/*" />
+      <div class="preview" *ngIf="categoriaEditada.imgSrc">
+        <img [src]="categoriaEditada.imgSrc" alt="Vista previa" />
+      </div>
+      <div class="modal-buttons">
+        <button class="guardar-btn" (click)="guardarEdicion()">Guardar</button>
+        <button class="cancelar-btn" (click)="cerrarModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</main>

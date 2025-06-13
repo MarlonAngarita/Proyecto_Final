@@ -1,0 +1,30 @@
+<nav class="navbar">
+  <h1>Detalle del Contenido</h1>
+</nav>
+
+<main class="contenido">
+  <div class="selector">
+    <label for="contenidoSelect">Selecciona un tema:</label>
+    <select id="contenidoSelect" [(ngModel)]="temaSeleccionado" (change)="cargarDetalles()">
+      <option *ngFor="let tema of temas" [value]="tema.value">{{ tema.nombre }}</option>
+    </select>
+  </div>
+
+  <div class="buscador">
+    <input
+      type="text"
+      [(ngModel)]="busquedaModulo"
+      placeholder="Buscar módulo..."
+      (input)="filtrarModulos()"
+    />
+  </div>
+
+  <div class="detalle">
+    <h2>{{ contenido.nombre }}</h2>
+    <p><strong>Biblioteca / Lenguaje:</strong> {{ contenido.biblioteca }}</p>
+    <h3>Módulos:</h3>
+    <ul>
+      <li *ngFor="let modulo of modulosFiltrados">{{ modulo }}</li>
+    </ul>
+  </div>
+</main>

@@ -1,0 +1,71 @@
+<header>
+  <h1>Detalles del Curso</h1>
+</header>
+
+<section id="detalle-curso">
+  <h2 class="curso-titulo">{{ curso?.titulo }}</h2>
+  <p><strong>Descripción:</strong></p>
+  <p>{{ curso?.descripcion }}</p>
+  <p><strong>Contenido:</strong></p>
+  <ul>
+    <li *ngFor="let item of curso?.contenido">{{ item }}</li>
+  </ul>
+
+  <div *ngIf="curso.material">
+    <h3>Material de Apoyo:</h3>
+    <ul>
+      <li *ngFor="let item of curso.material">{{ item }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="inscrito">
+    <label>Progreso:</label>
+    <div class="progreso-barra">
+      <div class="progreso-barra-interno" [style.width]="progreso + '%'">{{ progreso }}%</div>
+    </div>
+  </div>
+
+  <div id="acciones-curso">
+    <div class="botones-acciones">
+      <button *ngIf="!inscrito" class="btn-accion btn-inscribirse" (click)="inscribirse()">
+        Inscribirme
+      </button>
+      <button *ngIf="inscrito" class="btn-accion btn-retirarse" (click)="confirmarRetiro()">
+        Retirarse
+      </button>
+      <button class="btn-accion btn-volver" (click)="volver()">Volver</button>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de confirmación de inscripción -->
+<div *ngIf="mostrarModalInscripcion" class="modal fondo-modal">
+  <div class="modal-contenido">
+    <span (click)="cerrarModales()" class="cerrar">&times;</span>
+    <p>¡Te has inscrito correctamente en el curso!</p>
+    <div class="botones-modal">
+      <button class="btn-modal aceptar" (click)="cerrarModales()">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmación antes de retirarse -->
+<div *ngIf="mostrarModalRetiroConfirmacion" class="modal fondo-modal">
+  <div class="modal-contenido">
+    <p>¿Estás seguro que deseas retirarte del curso?</p>
+    <div class="botones-modal">
+      <button class="btn-modal aceptar" (click)="retirarse()">Aceptar</button>
+      <button class="btn-modal cancelar" (click)="cerrarModales()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de retiro exitoso -->
+<div *ngIf="mostrarModalRetiroExitoso" class="modal fondo-modal">
+  <div class="modal-contenido">
+    <p>¡Te has retirado del curso exitosamente!</p>
+    <div class="botones-modal">
+      <button class="btn-modal aceptar" (click)="cerrarModales()">Cerrar</button>
+    </div>
+  </div>
+</div>

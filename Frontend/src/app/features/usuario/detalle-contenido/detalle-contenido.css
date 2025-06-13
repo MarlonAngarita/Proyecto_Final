@@ -1,0 +1,110 @@
+/* Elimina cualquier margen en el cuerpo */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ededed;
+  color: #7407f2;
+}
+
+/* Navbar ocupa todo el ancho sin espacio superior */
+.navbar {
+  width: 100%;
+  background-color: #2607f2;
+  color: #ededed;
+  padding: 4px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: fixed; /* Se mantiene en la parte superior */
+  top: 0;
+  left: 0;
+}
+
+/* Ajusta el contenido para que no quede debajo del navbar */
+.contenido {
+  padding: 4rem 2rem 0.5rem;
+  max-width: 800px;
+  margin: 40px auto; /* Ajusta el margen después del navbar */
+  background-color: #ededed;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Hace que la página sea responsiva */
+@media (max-width: 768px) {
+  .contenido {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .selector select,
+  .buscador input {
+    width: 100%;
+  }
+
+  .navbar {
+    font-size: 1.5rem; /* Reduce el tamaño en pantallas pequeñas */
+  }
+}
+
+.selector {
+  margin-bottom: 1.5rem;
+}
+
+.selector label {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #2607f2;
+}
+
+.selector select {
+  padding: 0.5rem;
+  border: 2px solid #7407f2;
+  border-radius: 5px;
+  background-color: #ededed;
+  color: #2607f2;
+  font-size: 1rem;
+}
+
+.buscador {
+  margin-bottom: 1.5rem;
+}
+
+.buscador input {
+  width: 95%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #ededed;
+  border: 2px solid #7407f2;
+  border-radius: 5px;
+  color: #2607f2;
+}
+
+.detalle h2 {
+  color: #7407f2;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.detalle p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.detalle h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #2607f2;
+}
+
+#lista-modulos {
+  list-style-type: square;
+  padding-left: 1.5rem;
+  color: #444;
+}
+
+#lista-modulos li {
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,66 @@
+/* Contenedor general */
+.contenedor-nosotros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Bloques de contenido */
+.bloque {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Contenido interno */
+.contenido {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Texto con fondo */
+.texto {
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  flex: 1;
+  text-align: left;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Fondos de colores */
+.bg-purple {
+  background-color: #7407f2;
+}
+.bg-blue {
+  background-color: #2607f2;
+}
+.bg-indigo {
+  background-color: #7407f2;
+}
+
+/* Imágenes */
+.imagen {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .contenido {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imagen {
+    width: 100px;
+    height: 100px;
+  }
+}

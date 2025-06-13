@@ -1,0 +1,36 @@
+<form [formGroup]="formulario" (ngSubmit)="registrarUsuario()" class="formulario-container">
+  <h1>Registro de Usuario</h1>
+
+  <div class="input-container">
+    <input type="text" formControlName="nombre" required />
+    <label for="nombre">Nombre</label>
+  </div>
+
+  <div class="input-container">
+    <input type="text" formControlName="apellido" required />
+    <label for="apellido">Apellido</label>
+  </div>
+
+  <div class="input-container">
+    <input type="email" formControlName="correo" required />
+    <label for="correo">Email</label>
+  </div>
+
+  <div class="input-container">
+    <input type="password" formControlName="password" required />
+    <label for="password">Contraseña</label>
+  </div>
+
+  <div class="input-container">
+    <input type="text" formControlName="cedula" required />
+    <label for="cedula">Documento</label>
+  </div>
+
+  <select formControlName="roles_id_rol" required>
+    <option value="">Seleccione un perfil</option>
+    <option value="1">ESTUDIANTE</option>
+    <option value="2">PROFESOR</option>
+  </select>
+
+  <button type="submit">REGISTRAR</button>
+</form>

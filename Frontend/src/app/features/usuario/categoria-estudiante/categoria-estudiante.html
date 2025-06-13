@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <h1>Categoría de Estudiantes</h1>
+</nav>
+
+<main>
+  <section class="categorias">
+    <h2>Explora las categorías</h2>
+    <div class="categoria-grid">
+      <div *ngFor="let categoria of categorias" class="categoria-item">
+        <img [src]="categoria.imgSrc" [alt]="categoria.nombre" />
+        <p><strong>{{ categoria.nombre }}</strong></p>
+      </div>
+    </div>
+  </section>
+</main>

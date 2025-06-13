@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <h1>Biblioteca Kutsartcode</h1>
+</nav>
+
+<main class="contenido">
+  <div class="buscador-contenedor">
+    <i class="fa-solid fa-magnifying-glass icono-lupa"></i>
+    <input type="text" [(ngModel)]="busqueda" placeholder="Buscar contenido..." id="buscador" />
+  </div>
+
+  <section *ngFor="let item of bibliotecaFiltrada" class="item">
+    <h2 class="titulo">{{ item.titulo }}</h2>
+    <p class="descripcion">{{ item.descripcion }}</p>
+    <div class="contenido-libro">
+      <code>{{ item.contenido }}</code>
+    </div>
+  </section>
+</main>

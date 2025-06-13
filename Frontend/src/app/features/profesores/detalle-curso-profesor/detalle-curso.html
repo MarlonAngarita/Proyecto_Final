@@ -1,0 +1,12 @@
+<header>
+  <h1>Menú Principal</h1>
+  <h2>Detalles del Curso</h2>
+</header>
+
+<main class="menu-principal">
+  <div class="menu-tarjetas">
+    <div *ngFor="let tarjeta of tarjetas" class="tarjeta" (click)="navegar(tarjeta.ruta)">
+      <h3>{{ tarjeta.nombre }}</h3>
+    </div>
+  </div>
+</main>

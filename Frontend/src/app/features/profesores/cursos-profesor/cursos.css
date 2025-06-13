@@ -1,0 +1,261 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ededed;
+}
+
+.navbar {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2607f2;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 4px;
+  z-index: 1000;
+}
+
+.mis-cursos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  max-width: 1600px;
+  margin: 40px auto;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.mis-cursos-container > .curso-card,
+.mis-cursos-container > .crear-curso {
+  flex: 1 1 220px;
+  max-width: 250px;
+  min-width: 200px;
+  box-sizing: border-box;
+}
+
+.mis-cursos-container > *:nth-child(n + 5) {
+  margin-top: 1.5rem;
+}
+
+.crear-curso {
+  background-color: #ededed;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #2607f2;
+  transition: transform 0.2s ease;
+}
+
+.crear-curso:hover {
+  background-color: #f4f4f4;
+  transform: scale(1.05);
+}
+
+.btn-crear-curso {
+  font-size: 48px;
+  color: #2607f2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.curso-card {
+  background-color: #ededed;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.curso-card h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2607f2;
+  margin-bottom: 1rem;
+}
+
+.botones-curso {
+  display: flex;
+  justify-content: space-around; /* Alinea los botones horizontalmente */
+  flex-wrap: nowrap; /* Evita que los botones se apilen en pantallas grandes */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-detalles,
+.btn-eliminar {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  font-size: 0.95rem;
+  min-width: 90px;
+  text-align: center;
+}
+
+.btn-detalles {
+  background-color: #7407f2;
+}
+
+.btn-detalles:hover {
+  background-color: #5e06c3;
+}
+
+.btn-eliminar {
+  background-color: #ca1d1d;
+}
+
+.btn-eliminar:hover {
+  background-color: #e53535;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-contenido {
+  background: #ededed;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.modal-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #999;
+  background: none;
+  border: none;
+}
+
+.modal-cerrar:hover {
+  color: #333;
+}
+
+.modal-titulo {
+  color: #2607f2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #2607f2;
+}
+
+textarea,
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-botones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.modal-button {
+  background-color: #7407f2;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-button:hover {
+  background-color: #2607f2;
+}
+
+.btn-cerrar {
+  background-color: #ca1d1d;
+}
+
+.btn-cerrar:hover {
+  background-color: #e53535;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* 📱 Media queries para tablets y móviles */
+@media (max-width: 1024px) {
+  .mis-cursos-container {
+    justify-content: flex-start;
+  }
+
+  .mis-cursos-container > .curso-card,
+  .mis-cursos-container > .crear-curso {
+    flex: 1 1 45%;
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 600px) {
+  .mis-cursos-container {
+    justify-content: flex-start;
+  }
+
+  .mis-cursos-container > .curso-card,
+  .mis-cursos-container > .crear-curso {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

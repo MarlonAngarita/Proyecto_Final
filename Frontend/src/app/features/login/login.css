@@ -1,0 +1,98 @@
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  width: 400px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  background: white;
+  padding: 0 5px;
+  color: gray;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  top: 0;
+  left: 5px;
+  font-size: 12px;
+  color: #0051ff;
+}
+
+input:focus {
+  border-color: #0051ff;
+}
+
+.btn,
+.link-registro {
+  width: 200px;
+  height: 40px;
+  margin: 10px 0;
+  padding: 5px;
+  color: white;
+  background-color: blue;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.1s;
+}
+
+.btn:hover,
+.link-registro:hover {
+  background-color: rgb(135, 37, 221);
+  cursor: pointer;
+}
+
+.btn:active,
+.link-registro:active {
+  transform: scale(0.95);
+}
+
+.link-registro {
+  display: inline-block;
+  margin-top: 15px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.link-registro:hover {
+  color: darkblue;
+  cursor: pointer;
+}
